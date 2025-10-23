@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Botaniq.com</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script
+      type="text/JavaScript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/JavaScript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"
+    ></script>
+
+    <link rel="stylesheet" href="./css/w3.css" />
+    <style>
+      body {
+        font-family: "Times New Roman", Georgia, Serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+      }
+
+      /* place the element to the left */
+      .my-float-left {
+        float: left;
+        padding-right: 20px;
+      }
+
+      /* place the element to the right */
+      .my-float-right {
+        float: right;
+        padding-left: 20px;
+      }
+
+      /* class with scrollabe effect */
+      .my-scrolling {
+        height: 150px;
+        overflow: auto;
+      }
+
+      /* center the carousel slide */
+      .mySlides {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 65%;
+      }
+
+      /* accordion button hover */
+      #accordionBtn1:hover,
+      #accordionBtn2:hover {
+        background-color: rgb(59, 133, 71) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div
+        class="w3-bar w3-white w3-padding w3-card"
+        style="letter-spacing: 4px"
+      >
+        <div>
+          <a class="w3-padding-large w3-hide-small w3-right"
+            ><i class="fa fa-shopping-basket"></i
+          ></a>
+          <a class="w3-padding-large w3-hide-small w3-right"
+            ><i class="fa fa-search"></i
+          ></a>
+        </div>
+        <a href="#Home" class="w3-bar-item w3-button" style="font-size: 30px;">Botaniq</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <a href="#Home" class="w3-bar-item w3-button" style="font-size: 20px;">Home</a>
+          <a href="#Plants" class="w3-bar-item w3-button" style="font-size: 20px;">Plants</a>
+          <a href="#Types" class="w3-bar-item w3-button" style="font-size: 20px;">Types</a>
+          <a href="#Care" class="w3-bar-item w3-button" style="font-size: 20px;">Care</a>
+          <a href="#Tips" class="w3-bar-item w3-button" style="font-size: 20px;">Tips</a>
+          <a href="#NewArrivals" class="w3-bar-item w3-button" style="font-size: 20px;">New Arrivals</a>
+        </div>
+        <a
+          href="javascript:void(0)"
+          class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+          onclick="w3_open()"
+        >
+          <i class="fa fa-bars w3-text-black"></i>
+        </a>
+      </div>
+    </div>
+    <nav
+      class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-hide-medium w3-hide-large w3-text-black w3-large"
+      style="display: none"
+      id="mySidebar"
+    >
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-bar-item w3-button w3-large w3-padding-16"
+        >Close &times;</a
+      >
+      <a href="#Home" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Food</a
+      >
+      <a href="#Plants" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Food</a
+      >
+      <a href="#Types" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Seasoning</a
+      >
+      <a href="#Care" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Utensil</a
+      >
+      <!-- more id references to mobile navbar -->
+      <a href="#Tipes" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Cuttery</a
+      >
+      <a href="#New Arrivals" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Chef</a
+      >
+    </nav>
+    <!-- navbar - mobile version end -->
+
+    <!-- Header -->
+    <header
+      class="w3-display-container w3-content w3-wide w3-center"
+      style="max-width: 1600px; min-width: 500px"
+      id="Home"
+    >
+      <img
+        src="./img/Lucious-plants-in-interior-design-1.jpeg"
+        alt="Home Page Image"
+        width="1200"
+        height="675"
+      />
+      <div class="w3-display-bottomleft w3-padding-large w3-opacity w3-hide-small"></div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width: 1500px">
+      <!-- Plants Section -->
+      <div id="Plants">
+        <div>
+          <br/>
+          <br/>
+          <br/>
+          <h1 class="w3-center">Plants</h1>
+          <br />
+          <div class="w3-row-padding" style="margin: 15px 0px">
+            <div class="w3-col s3">
+              <img
+                src="/img/0003_282-M-PHLWHT-ME-BLK45M.webp"
+                class="w3-round w3-image w3-hover-shadow"
+                alt="Plant 1"
+                style="width: 100%; cursor: zoom-in"
+                onclick="document.getElementById('modal01').style.display='block'"
+              />
+            </div>
+            <div class="w3-col s3">
+              <img
+                src="img/ZZPlantLarge_Stone_Black_f33e0eb3-5ea7-469c-bce2-a4eb3597cf6b.webp"
+                class="w3-round w3-image w3-hover-shadow"
+                alt="Plant 2"
+                style="width: 100%; cursor: zoom-in"
+                onclick="document.getElementById('modal02').style.display='block'"
+              />
+            </div>
+            <div class="w3-col s3">
+              <img
+                src="/img/studio_anthurium_sweet_Dream__0004_stone.webp"
+                class="w3-round w3-image w3-hover-shadow"
+                alt="Plant 3"
+                style="width: 100%; cursor: zoom-in"
+                onclick="document.getElementById('modal03').style.display='block'"
+              />
+            </div>
+            <div class="w3-col s3">
+              <img
+                src="/img/studio_WhitebirdofparadiseHuge_Stone_Black.webp"
+                class="w3-round w3-image w3-hover-shadow"
+                alt="Plant 4"
+                style="width: 100%; cursor: zoom-in"
+                onclick="document.getElementById('modal04').style.display='block'"
+              />
+            </div>
+          </div>
+        <div class="w3-row-padding" style="margin: 15px 0px">
+          <div class="w3-col s3">
+            <img
+              src="/img/MoneyTreeHuge_Stone_Black_0dc7b032-2dae-443f-8d52-5fe32888f0ee.webp"
+              class="w3-round w3-image w3-hover-shadow"
+              alt="Plant 5"
+              style="width: 100%; cursor: zoom-in"
+              onclick="document.getElementById('modal05').style.display='block'"
+            />
+          </div>
+          <div class="w3-col s3">
+            <img
+              src="/img/Aglaonema_Beauty_Amber_small_black.webp"
+              class="w3-round w3-image w3-hover-shadow"
+              alt="Plant 6"
+              style="width: 100%; cursor: zoom-in"
+              onclick="document.getElementById('modal06').style.display='block'"
+            />
+          </div>
+          <div class="w3-col s3">
+            <img
+              src="/img/DracaenajanetcarigcompactaHuge_Stone_Black.webp"
+              class="w3-round w3-image w3-hover-shadow"
+              alt="Plant 7"
+              style="width: 100%; cursor: zoom-in"
+              onclick="document.getElementById('modal07').style.display='block'"
+            />
+          </div>
+          <div class="w3-col s3">
+            <img
+              src="/img/GreenSnakePlantLarge_Stone_Black_5cb47517-7c04-41b7-a06c-e5203270a374.webp"
+              class="w3-round w3-image w3-hover-shadow"
+              alt="Plant 8"
+              style="width: 100%; cursor: zoom-in"
+              onclick="document.getElementById('modal08').style.display='block'"
+            />
+          </div>
+        </div>
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Orchid</h4>
+            <img
+              src="/img/0003_282-M-PHLWHT-ME-BLK45M.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">ZZ Plant</h4>
+            <img
+              src="img/ZZPlantLarge_Stone_Black_f33e0eb3-5ea7-469c-bce2-a4eb3597cf6b.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Anthurium</h4>
+            <img
+              src="/img/studio_anthurium_sweet_Dream__0004_stone.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Bird of Paradise</h4>
+            <img
+              src="/img/studio_WhitebirdofparadiseHuge_Stone_Black.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal05" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Money Tree</h4>
+            <img
+              src="/img/MoneyTreeHuge_Stone_Black_0dc7b032-2dae-443f-8d52-5fe32888f0ee.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal06" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Algaonema</h4>
+            <img
+              src="/img/Aglaonema_Beauty_Amber_small_black.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal07" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Dracaena</h4>
+            <img
+              src="/img/DracaenajanetcarigcompactaHuge_Stone_Black.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+        <div id="modal08" class="w3-modal" onclick="this.style.display='none'">
+          <!-- add close button-->
+          <span
+            class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+            style="cursor: pointer"
+            >&times;</span
+          >
+          <!-- add modal background image -->
+          <div class="w3-modal-content w3-animate-zoom">
+            <h4 class="w3-center">Snake Plant</h4>
+            <img
+              src="/img/GreenSnakePlantLarge_Stone_Black_5cb47517-7c04-41b7-a06c-e5203270a374.webp"
+              style="width: 100%"
+            />
+          </div>
+        </div>
+
+    <hr />
+    <!-- Types Section -->
+    <div id="Types">
+        <div style="font-size: 25px;">
+          <br/>
+          <br/>
+          <br/>
+          <h1 class="w3-center">Types</h1>
+          <br />
+          <!-- sortable table begin -->
+          <table id="myTable" class="w3-table-all">
+            <thead>
+              <tr class="w3-black w3-center-align">
+                <th>Types</th>
+                <th>Summary</th>
+                <th>Examples</th>
+                <th>Photo Example</th>
+              </tr>
+            </thead>
+            <tr class="w3-hover-green">
+              <td>Low Light</td>
+              <td>Low light indoor plants thrive in areas with minimal sunlight, making them ideal for apartments or rooms with small windows. </td>
+              <td>Peace Lily, Spider Plant, Philodendron</td>
+               <td>
+                <img src="./img/DracaenaJanetCraigHuge_Stone_Black_a7773b92-55ba-4e07-a565-c964c4452248.webp" style="width: 120px" />
+              </td>
+            </tr>
+            <tr class="w3-hover-green">
+              <td>Less Water</td>
+              <td>Less water indoor plants are perfect for busy people or those new to plant care and limited time. </td>
+              <td>Snake Plant, ZZ Plant, Pothos</td>
+               <td>
+                <img src="./img/289-M-ALVASP-ME-BLK45M.webp" style="width: 120px" />
+              </td>
+            </tr>
+            <tr class="w3-hover-green">
+              <td>Flowering</td>
+              <td>Flowering indoor plants bring color and beauty to indoor spaces with their vibrant blooms.</td>
+              <td>African Violet, Peace Lily, Anthurium</td>
+               <td>
+                <img src="./img/AnthuriumRedEra_black_without_stand-2.webp" style="width: 120px" />
+              </td>
+            </tr>
+            <tr class="w3-hover-green">
+              <td>Pet Safe</td>
+              <td>Indoor pet-friendly plants are safe to keep around cats and dogs, posing no toxic risk if chewed or touched. </td>
+              <td>Spider Plant, Calathea, Areca Palm</td>
+               <td>
+                <img src="./img/ArecaPalmHuge_Stone_Black_0bf0d303-ab2f-43b9-8bdb-9d2b8d874491.webp" style="width: 120px" />
+              </td>
+            </tr>
+          </table>
+          <!-- sortable table end -->
+        </div>
+      </div>
+
+      <hr />
+      <!-- Care Section -->
+      <div id="Care">
+        <div>
+          <br/>
+          <br/>
+          <br/>
+          <h1 class="w3-center">Care</h1>
+          <br />
+          <p style="font-size: 25px;">
+            <img
+              src="./img/how-to-water-houseplants-5651236-primary-3aa1e5b5021640ee96184b6755caa964.jpg"
+              class="w3-round w3-image w3-left w3-padding-image"
+              alt="Watering Plants"
+              style="width: 50%"
+            />
+            Taking care of indoor plants involves creating an environment that
+            mimics their natural habitat as closely as possible. Light is one of
+            the most important factors—most houseplants thrive in bright,
+            indirect sunlight, so placing them near a window with filtered light
+            is ideal. Too much direct sun can scorch the leaves, while too
+            little can lead to weak, leggy growth. Watering is another key
+            aspect; it’s best to check the soil regularly and only water when
+            the top inch feels dry. Overwatering is a common mistake and can
+            lead to root rot, so make sure your pots have proper drainage.
+            <span>
+                Check out this website for:
+                <!-- step 2: use <a> tag to create a hyperlink -->
+                <!--    The hyperlink can be internal and external -->
+                <!--    Use "_blank" for the target property to open a page in a new tab -->
+                <!-- step 3 (optional): customize <a> tag styles - see <style> tag above -->
+                <a
+                  href="https://www.provenwinners.com/learn/wait-plant-drowning"
+                  target="_blank"
+                  class="w3-hover-opacity"
+                  style="color:rgb(59, 133, 71)"
+                >
+                  How to Dry Out Overwatered Plants</a
+                >
+              </span>
+          </p>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <p style="font-size: 25px;">
+            <img
+              src="./img/spray-water-on-indoor-plants-scaled.jpg"
+              class="w3-round w3-image w3-right w3-padding-image"
+              alt="Spraying Plants"
+              style="width: 30%"
+            />
+            In addition to light and water, indoor plants benefit from a little
+            regular maintenance. Wiping the leaves with a damp cloth keeps them
+            free of dust and allows them to absorb more light. Rotating your
+            plants every couple of weeks helps them grow evenly and prevents
+            them from leaning toward the light source. During the growing
+            season—usually spring and summer—feeding your plants with a diluted,
+            balanced fertilizer every few weeks can promote healthy growth. By
+            giving your plants consistent care and attention, they can flourish
+            and bring a sense of calm and beauty to your indoor space.
+            <span>
+                Check out this website for:
+                <!-- step 2: use <a> tag to create a hyperlink -->
+                <!--    The hyperlink can be internal and external -->
+                <!--    Use "_blank" for the target property to open a page in a new tab -->
+                <!-- step 3 (optional): customize <a> tag styles - see <style> tag above -->
+                <a
+                  href="https://www.plantsavvy.com/blog/blog-post-title-four-fdfsl-gsw2g-3smny-tkma2-a5pzd-xsfc4-g3pex-3fe3d-5hrkd-fcltk-nft9z-ypylj"
+                  target="_blank"
+                  class="w3-hover-opacity"
+                  style="color:rgb(59, 133, 71)"
+                >
+                  Affordable and Natural Houseplant Fertilizers Everyone Should Know</a
+                >
+              </span>
+          </p>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+      </div>
+      </div>
+
+      <hr />
+      <!-- Tips Section -->
+      <div id="Tips">
+        <div>
+          <br/>
+          <br/>
+          <br/>
+          <h1 class="w3-center">Tips</h1>
+          <br />
+          <div class="w3-row">
+            <div class="w3-col m4 w3-center">
+              <iframe
+                height="315"
+                src="https://www.youtube.com/embed/LZhnCxG5c6s?si=j3E-3sEIRjghAp7j"
+                title="Houseplant Care Tips for Beginners"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="w3-col m4 w3-center">
+              <iframe
+                height="315"
+                src="https://www.youtube.com/embed/J1LW1Nz0pd4?si=-IFjags7vglYEhZA"
+                title="Plant Care - 7 Mistakes to Avoid"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="w3-col m4 w3-center">
+              <iframe
+                height="315"
+                src="https://www.youtube.com/embed/Jh5oX0VRnzk?si=40xZs0iElERsJXAO"
+                title="Plant Propagation for Beginners"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <div class="w3-row">
+          <div class="w3-col m4 w3-center" style="padding-right: 3px">
+            <button
+              onclick="myAccordion('accordion1')"
+              class="w3-button w3-block w3-black w3-center-align"
+              id="accordionBtn1"
+            >
+              <h4>
+                Houseplant Care
+                <i class="fa fa-caret-down"></i>
+              </h4>
+            </button>
+            <div
+              id="accordion1"
+              class="w3-hide w3-container"
+              style="height: 260px"
+            >
+              <p style="font-size: 25px;">
+                This beginner-friendly guide covers essential houseplant care.
+                Learn how to choose healthy plants and provide proper drainage,
+                repotting, and watering. The video also demonstrates optimal
+                nutrition, light, and temperature needs, plus pest control.
+              </p>
+            </div>
+          </div>
+          <div class="w3-col m4 w3-center" style="padding-right: 3px">
+            <button
+              onclick="myAccordion('accordion2')"
+              class="w3-button w3-block w3-black w3-center-align"
+              id="accordionBtn2"
+            >
+              <h4>
+                Plant Mistakes to Avoid
+                <i class="fa fa-caret-down"></i>
+              </h4>
+            </button>
+            <div
+              id="accordion2"
+              class="w3-hide w3-container"
+              style="height: 260px"
+            >
+              <p style="font-size: 25px;">
+                This video offers plant care tips and tricks, focusing on common
+                mistakes to avoid. Listen to personal experiences and practical
+                advice, including how to determine when to water, how to
+                fertilize, and how to prevent common plant problems.
+              </p>
+            </div>
+          </div>
+          <div class="w3-col m4 w3-center" style="padding-right: 3px">
+            <button
+              onclick="myAccordion('accordion3')"
+              class="w3-button w3-block w3-black w3-center-align"
+              id="accordionBtn3"
+            >
+              <h4>
+                Plant Propagation <i class="fa fa-caret-down"></i>
+              </h4>
+            </button>
+            <div
+              id="accordion3"
+              class="w3-hide w3-container"
+              style="height: 260px"
+            >
+              <p style="font-size: 25px;">
+                Learn how to propagate five popular indoor plants: pothos,
+                string of hearts, monstera deliciosa, pilea (pancake plant), and
+                ZZ plant. There are different techniques shown for each plant,
+                including taking cuttings, dividing rhizomes, and using water
+                propagation.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <hr />
+      <!-- New Arrivals Section -->
+      <div id="NewArrivals">
+        <div>
+          <br/>
+          <br/>
+          <br/>
+          <h1 class="w3-center">New Arrivals</h1>
+          <br />
+          <div>
+            <img class="mySlides" src="./img/the-sill_money-tree_gallery_all_03.png.webp" style="width: 100%" />
+            <img
+              class="mySlides"
+              src="./img/the-sill_money-tree_gallery_all_03.png.webp"
+              style="width: 100%; display: none"
+            />
+            <img
+              class="mySlides"
+              src="./img/the-sill_Medium-Money-Tree_Medium_Grant_Cream_Variant.jpg.webp"
+              style="width: 100%; display: none"
+            />
+            <img
+              class="mySlides"
+              src="./img/the-sill_money-tree_gallery_small_all_all_02_f4730339-7e2a-4019-964f-2ce297ef7f62.jpg.webp"
+              style="width: 100%; display: none"
+            />
+            <img
+              class="mySlides"
+              src="./img/the-sill_money-tree_gallery_small_all_all_01_c888e75f-4f27-4306-a52e-735cfe04b521.jpg.webp"
+              style="width: 100%; display: none"
+            />
+          </div>
+          <!-- carousel slideshow end -->
+
+          <!-- carousel thumbnail begin-->
+          <div class="w3-col s3">
+            <!-- "currentDiv(1)" link to 1st slide -->
+            <!-- demo class is used by a javascript function to turn off the opacity effect -->
+            <img
+              class="demo w3-opacity w3-hover-opacity-off"
+              src="./img/the-sill_money-tree_gallery_all_03.png.webp"
+              style="width: 100%; cursor: pointer; padding: 7px"
+              onclick="currentDiv(1)"
+            />
+          </div>
+          <div class="w3-col s3">
+            <!-- "currentDiv(2)" link to 2nd slide -->
+            <!-- demo class is used by a javascript function to turn off the opacity effect -->
+            <img
+              class="demo w3-opacity w3-hover-opacity-off"
+              src="./img/the-sill_Medium-Money-Tree_Medium_Grant_Cream_Variant.jpg.webp"
+              style="width: 100%; cursor: pointer; padding: 7px"
+              onclick="currentDiv(2)"
+            />
+          </div>
+          <div class="w3-col s3">
+            <!-- "currentDiv(3)" link to 3rd slide -->
+            <!-- demo class is used by a javascript function to turn off the opacity effect -->
+            <img
+              class="demo w3-opacity w3-hover-opacity-off"
+              src="./img/the-sill_money-tree_gallery_small_all_all_02_f4730339-7e2a-4019-964f-2ce297ef7f62.jpg.webp"
+              style="width: 100%; cursor: pointer; padding: 7px"
+              onclick="currentDiv(3)"
+            />
+          </div>
+          <div class="w3-col s3">
+            <!-- "currentDiv(4)" link to 4th slide -->
+            <!-- demo class is used by a javascript function to turn off the opacity effect -->
+            <img
+              class="demo w3-opacity w3-hover-opacity-off"
+              src="./img/the-sill_money-tree_gallery_small_all_all_01_c888e75f-4f27-4306-a52e-735cfe04b521.jpg.webp"
+              style="width: 100%; cursor: pointer; padding: 7px"
+              onclick="currentDiv(4)"
+            />
+          </div>
+          <!-- carousel thumbnail end-->
+
+          <!-- scrollable area begin -->
+          <!-- 3 columns of scrollable areas - using w3-row and w3-col classes for partitions -->
+          <div class="w3-row">
+            <div class="w3-padding w3-white">
+              <div
+                class="w3-black w3-center"
+                style="
+                  margin-left: -16px;
+                  margin-right: -16px;
+                  margin-top: -18px;
+                "
+              >
+                <h2>The Money Tree</h2>
+              </div>
+              <div class="my-scrolling" style="font-size: 25px; padding-right: 10px">
+                <p>
+                  The money tree (Pachira aquatica) is a popular indoor plant known for its braided trunk and lush, green leaves. Believed to bring good luck and prosperity, it’s often used in homes and offices as a symbol of financial success. Easy to care for, the money tree thrives in bright, indirect light and prefers infrequent watering, making it ideal for beginner plant owners. Its unique appearance and low maintenance needs make it a stylish and meaningful addition to any indoor space.
+                </p>
+              </div>
+            </div>
+            <!-- scrollable area end -->
+        </div>
+      </div>
+      <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-bar w3-center w3-white w3-card w3-padding">
+      <a href="#Home" class="w3-button w3-light-grey"
+        ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a
+      >
+      <div class="w3-left w3-bar-item">
+        <h3>Contact</h3>
+        <h4>Email: bontaniq@gmail.com</h4>
+        <h4>Phone: (132) 456-7891</h4>
+      </div>
+      <div class="w3-right w3-bar-item">
+        <h3>Social Media</h3>
+        <div class="w3-xlarge w3-section">
+          <a
+            class="fa fa-instagram w3-hover-opacity w3-text-black"
+            href="https://www.instagram.com/"
+            target="_blank"
+          ></a>
+          <a
+            class="fa fa-pinterest-p w3-hover-opacity w3-text-black"
+            href="https://www.pinterest.com/"
+            target="_blank"
+          ></a>
+          <a
+            class="fa fa-facebook-official w3-hover-opacity w3-text-black my-text-decoration"
+            href="https://www.facebook.com/"
+            target="_blank"
+          ></a>
+        </div>
+        <h6>© 2025 Bontaniq</h6>
+      </div>
+    </footer>
+    <script>
+      // mobile version begin
+      // Toggle between showing and hiding the sidebar when clicking the menu icon
+      var mySidebar = document.getElementById("mySidebar");
+
+      function w3_open() {
+        if (mySidebar.style.display === "block") {
+          mySidebar.style.display = "none";
+        } else {
+          mySidebar.style.display = "block";
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+      }
+      // mobile version end
+
+      // carousel slideshow begin
+      var myIndex = 0;
+      carousel();
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+          myIndex = 1;
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+
+      // slideshow - carousel
+      // hook each carousel button
+      function currentDiv(n) {
+        showDivs((slideIndex = n));
+        myIndex = n;
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        if (n > x.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = x.length;
+        }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+        }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " w3-opacity-off";
+      }
+      // carousel slideshow end
+
+      // sortable table begin
+      $(document).ready(function () {
+        $("table#myTable").tablesorter({
+          sortList: [
+            [2, 1],
+          ] /* 1st number - column to sort, 2nd number - asending (2) or descending order (1) */,
+          CssAsc: "tablesorter-headerAsc",
+          CssDesc: "tablesorter-headerDesc",
+        });
+      });
+      // sortable table end
+
+      // accordion begin
+      function myAccordion(id) {
+        var x = document.getElementById(id);
+        // if the accordion text is hidden, show it and change the button color to orange
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+          x.previousElementSibling.className =
+            x.previousElementSibling.className.replace("w3-brown", "w3-orange");
+        } else {
+          // if the accordion text is displayed, hide it and change the button color to brown
+          x.className = x.className.replace(" w3-show", "");
+          x.previousElementSibling.className =
+            x.previousElementSibling.className.replace("w3-orange", "w3-brown");
+        }
+      }
+      // accordion end
+    </script>
+  </body>
+</html>
