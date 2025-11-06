@@ -863,6 +863,42 @@
         }
       }
       // accordion end
+
+      <script>
+// Run after the page loads
+window.addEventListener('load', () => {
+  const images = document.querySelectorAll('img');
+
+  images.forEach(img => {
+    img.onerror = () => {
+      console.warn('Broken image detected:', img.src);
+
+      // Extract the file name and folder path
+      const urlParts = img.src.split('/');
+      const fileName = urlParts.pop();
+      const folderPath = urlParts.join('/');
+
+      console.info('Check the following:');
+
+      // 1. Folder name capitalization
+      console.info(`- Folder path: "${folderPath}" (match capitalization exactly)`);
+
+      // 2. File name capitalization
+      console.info(`- File name: "${fileName}" (match capitalization exactly)`);
+
+      // 3. Relative vs absolute path
+      console.info('- Ensure path is correct relative to HTML file.');
+
+      // 4. File uploaded to server
+      console.info('- Verify this file exists on the server in this folder.');
+
+      // Optional: visually highlight broken images
+      img.style.border = '2px solid red';
+      img.alt = 'BROKEN IMAGE';
+    };
+  });
+});
+</script>
     </script>
   </body>
 </html>
