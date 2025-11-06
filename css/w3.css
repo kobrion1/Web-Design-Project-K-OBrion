@@ -251,6 +251,8 @@ a {
   border-spacing: 0;
   width: 100%;
   display: table;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .w3-table-all {
   border: 1px solid #ccc;
@@ -1225,8 +1227,12 @@ a {
   padding-top: 24px !important;
 }
 .w3-padding-image {
-  padding-right: 24px !important;
-  padding-left: 24px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+}
+.w3-padding-text {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
 }
 .w3-left {
   float: left !important;
