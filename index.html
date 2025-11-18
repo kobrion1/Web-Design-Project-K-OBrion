@@ -54,9 +54,10 @@
 
       /* center the carousel slide */
       .mySlides {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 65%;
+        width: 100%;
+        height: 1299px;        
+        object-fit: cover;
+        display: none;
       }
 
       /* accordion button hover */
@@ -112,23 +113,23 @@
         >Close &times;</a
       >
       <a href="#Home" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Food</a
+        >Home</a
       >
       <a href="#Plants" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Food</a
+        >Plamnts</a
       >
       <a href="#Types" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Seasoning</a
+        >Types</a
       >
       <a href="#Care" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Utensil</a
+        >Care</a
       >
       <!-- more id references to mobile navbar -->
-      <a href="#Tipes" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Cuttery</a
+      <a href="#Tips" onclick="w3_close()" class="w3-bar-item w3-button"
+        >Tips</a
       >
       <a href="#New Arrivals" onclick="w3_close()" class="w3-bar-item w3-button"
-        >Chef</a
+        >New Arrivals</a
       >
     </nav>
     <!-- navbar - mobile version end -->
@@ -668,24 +669,20 @@
           <br />
           <div>
             <img
-              class="mySlides w3-padding-text"
+              class="mySlides"
               src="./img/the-sill_money-tree_gallery_all_03.png.jpg"
-              style="width: 100%; display: none"
             />
             <img
               class="mySlides"
               src="./img/the-sill_Medium-Money-Tree_Medium_Grant_Cream_Variant.jpg.jpg"
-              style="width: 100%; display: none"
             />
             <img
               class="mySlides"
               src="./img/the-sill_money-tree_gallery_small_all_all_02_f4730339-7e2a-4019-964f-2ce297ef7f62.jpg.webp"
-              style="width: 100%; display: none"
             />
             <img
               class="mySlides"
               src="./img/the-sill_money-tree_gallery_small_all_all_01_c888e75f-4f27-4306-a52e-735cfe04b521.jpg.webp"
-              style="width: 100%; display: none"
             />
           </div>
           <!-- carousel slideshow end -->
