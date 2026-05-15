@@ -73,6 +73,21 @@
         text-align: center;   
         width: max-content;    
       }
+
+      .active-nav {
+        background-color: rgb(59, 133, 71) !important;
+        color: white !important;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+
+
+
     </style>
   </head>
   <body>
@@ -93,12 +108,17 @@
         <a href="#Home" class="w3-bar-item w3-button" style="font-size: 30px;">Botaniq</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-          <a href="#Home" class="w3-bar-item w3-button" style="font-size: 20px;">Home</a>
-          <a href="#Plants" class="w3-bar-item w3-button" style="font-size: 20px;">Plants</a>
-          <a href="#Types" class="w3-bar-item w3-button" style="font-size: 20px;">Types</a>
-          <a href="#Care" class="w3-bar-item w3-button" style="font-size: 20px;">Care</a>
-          <a href="#Tips" class="w3-bar-item w3-button" style="font-size: 20px;">Tips</a>
-          <a href="#NewArrivals" class="w3-bar-item w3-button" style="font-size: 20px;">New Arrivals</a>
+          <a href="#Home" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">Home</a>
+
+          <a href="#Plants" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">Plants</a>
+
+          <a href="#Types" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">Types</a>
+
+          <a href="#Care" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">Care</a>
+
+          <a href="#Tips" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">Tips</a>
+
+          <a href="#NewArrivals" class="w3-bar-item w3-button nav-link" style="font-size: 20px;">New Arrivals</a>
         </div>
         <a
           href="javascript:void(0)"
@@ -889,6 +909,30 @@
         }
       }
       // accordion end
+
+      // active navbar highlight on scroll
+      const sections = document.querySelectorAll("div[id], header[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 150;
+
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active-nav");
+
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active-nav");
+          }
+        });
+      });
     </script>
   </body>
 </html>
