@@ -81,19 +81,9 @@
         text-decoration: none;
       }
 
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0%;
-        height: 3px;
-        background-color: rgb(59, 133, 71);
-        transition: width 0.3s ease;
-      }
-
-      .nav-link.active-nav::after {
-        width: 100%;
+      .nav-link.active-nav {
+        color: rgb(59, 133, 71) !important;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -912,29 +902,19 @@
       }
       // accordion end
 
-      // scroll spy (highlight current section in header)
       const sections = document.querySelectorAll("div[id], header[id]");
       const navLinks = document.querySelectorAll(".nav-link");
 
       window.addEventListener("scroll", () => {
         let current = "";
 
+        const offset = document.querySelector(".w3-top").offsetHeight;
+
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 120;
-          const sectionHeight = section.clientHeight;
+          const sectionTop = section.offsetTop - offset - 10;
 
-          if (pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active-nav");
-          if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active-nav");
-          }
-        });
-      });
+          if (window.pageYOffset >= sectionTop) {
+            current = section.get
     </script>
   </body>
 </html>
