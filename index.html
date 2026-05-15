@@ -83,7 +83,6 @@
 
       .nav-link.active-nav {
         color: rgb(59, 133, 71) !important;
-        font-weight: bold;
       }
     </style>
   </head>
@@ -906,15 +905,27 @@
       const navLinks = document.querySelectorAll(".nav-link");
 
       window.addEventListener("scroll", () => {
-        let current = "";
+        const scrollPos = window.scrollY + window.innerHeight / 3;
 
-        const offset = document.querySelector(".w3-top").offsetHeight;
+        let activeId = null;
 
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop - offset - 10;
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
 
-          if (window.pageYOffset >= sectionTop) {
-            current = section.get
+          if (scrollPos >= top && scrollPos < bottom) {
+            activeId = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === "#" + activeId) {
+            link.classList.add("active-nav");
+          } else {
+            link.classList.remove("active-nav");
+          }
+        });
+      });
     </script>
   </body>
 </html>
